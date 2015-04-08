@@ -5,3 +5,4 @@ log
 .env
 bower_components
 public/build
+*.sublime-workspace
