@@ -1,0 +1,18 @@
+extends ./layout
+
+block body
+  div(ng-app="app")
+    div.topbar
+      div.container
+        div.col-md-offset-2.col-md-8
+          div(topbar)
+    div.container
+      div.col-md-offset-2.col-md-8
+        div(ng-view)
+
+block scripts
+  script(src="/build/bower.js")
+  script(src="/build/templates.js")
+  script
+    | window.app = angular.module('app', ['ngRoute', 'ui.bootstrap', 'templates']);
+  script(src="/build/app.js")
