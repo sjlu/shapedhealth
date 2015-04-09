@@ -7,5 +7,6 @@ router.use(auth.requiresUser);
 
 // routes
 router.use("/me", require('./me'));
+router.use("/topics", require('./topics'));
 
 module.exports = router;

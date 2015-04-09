@@ -50,7 +50,8 @@ passport.deserializeUser(function(id, done) {
 passport.use(new FacebookStrategy({
     clientID: config.FACEBOOK_APP_ID,
     clientSecret: config.FACEBOOK_APP_SECRET,
-    callbackURL: config.URL + "/auth/facebook/callback"
+    callbackURL: config.URL + "/auth/facebook/callback",
+    profileFields: ['id', 'first_name', 'last_name', 'email', 'picture.type(large)']
   },
   function(accessToken, refreshToken, profile, done) {
     profile = profile._json;
@@ -61,6 +62,13 @@ passport.use(new FacebookStrategy({
       user.first_name = profile.first_name;
       user.last_name = profile.last_name;
       user.email = profile.email;
+
+      if (profile.picture && profile.picture.data && profile.picture.data.url) {
+        user.picture = profile.picture.data.url;
+      } else {
+        user.picture = null;
+      }
+
       user.save(function(err, user) {
         if (err) return done(err);
         done(null, user);

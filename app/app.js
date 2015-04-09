@@ -3,7 +3,8 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   $locationProvider.html5Mode(false);
 
   var routes = {
-    '/': 'listConversations'
+    '/': 'listTopics',
+    '/topics/:id': 'showTopic'
   };
 
   for (var route in routes) {

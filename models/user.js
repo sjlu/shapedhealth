@@ -14,12 +14,16 @@ var User = new mongoose.Schema({
   email: {
     type: String,
     trim: true,
+    unique: true,
     lowercase: true
   },
   fbid: {
     type: Number,
     required: true,
     unique: true
+  },
+  picture: {
+    type: String
   }
 });
 
@@ -44,8 +48,7 @@ User.virtual('name').get(function() {
 
 User.virtual('is_admin').get(function() {
   if (_.contains([
-    'tacticalazn@gmail.com',
-    'dannguyen39@yahoo.com'
+    'tacticalazn@gmail.com'
   ], this.email)) {
     return true;
   }

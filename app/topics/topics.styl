@@ -1,0 +1,52 @@
+.startTopic
+  margin-top: 20px
+
+  padding: 0 30px
+
+  input
+    margin-bottom: 5px
+
+.allTopics
+  margin-top: 30px
+
+  .panel-heading
+    font-size: 20px
+    font-weight: 600
+
+  .topicItem
+    display: block
+    padding: 15px 21px
+    border-bottom: 1px solid #e5e5e5
+    color: black;
+
+    &:hover
+    &:active
+      background-color: darken(#fff, 2%)
+      text-decoration: none
+
+      .headline
+        span
+          text-decoration: underline
+
+    &:last-child
+      border-bottom: 0
+
+    .headline
+      font-size: 18px
+
+      small
+        font-size: 70%
+        color: #888
+
+    .participants
+      margin-top: 3px
+      margin-bottom: 3px
+
+      .participant
+        margin-left: 2px
+        width: 25px
+        height: 25px
+        border-radius: 25px
+
+        &.creator
+          box-shadow: 0 0 2px #428bca
