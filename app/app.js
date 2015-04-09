@@ -3,13 +3,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   $locationProvider.html5Mode(false);
 
   var routes = {
-    '/questions': 'listQuestions',
-    '/questions/create': 'modifyQuestion',
-    '/questions/view/:id': 'viewQuestion',
-    '/questions/edit/:id': 'modifyQuestion',
-    '/categories': 'listCategories',
-    '/categories/create': 'modifyCategory',
-    '/categories/edit/:id': 'modifyCategory'
+    '/': 'listConversations'
   };
 
   for (var route in routes) {
@@ -21,7 +15,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
   }
 
   $routeProvider.otherwise({
-    redirectTo: '/questions'
+    redirectTo: '/'
   });
 
 }]);
