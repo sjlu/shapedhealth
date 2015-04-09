@@ -12,7 +12,7 @@ div.panel.panel-default.allTopics
     div.headline
       span
         | {{topic.headline}}
-      small
-        | &nbsp;&mdash; asked {{topic.updated_ago}} ago
+      small(ng-show="topic.updated_ago")
+        | &nbsp;&mdash; {{topic.updated_ago}} ago
     div.participants
       img.participant.creator(ng-src="{{topic._creator.picture}}")
