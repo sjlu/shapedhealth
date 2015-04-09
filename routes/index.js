@@ -6,6 +6,10 @@ var _ = require('lodash');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  if (req.user) {
+    return res.redirect('/app');
+  }
+
   return res.render('index');
 });
 
