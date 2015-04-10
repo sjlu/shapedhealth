@@ -1,4 +1,4 @@
-app.controller('listTopics', function($scope, $http) {
+app.controller('listTopics', function($scope, $http, $location) {
 
   $scope.newHeadline = '';
   $scope.creating = false;
