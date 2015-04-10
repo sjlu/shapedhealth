@@ -1,0 +1,20 @@
+div.col-sm-offset-1.col-sm-10.topicDetail
+  h3.headline
+    | {{topic.headline}}
+  br
+  table
+    tr(ng-repeat="comment in comments")
+      td
+        img.picture(ng-src="{{comment._user.picture}}")
+      td
+        div.panel.panel-default
+          div.panel-body.comment
+            | {{comment.text}}
+    tr.newComment
+      td
+        img.picture(ng-src="{{me.picture}}")
+      td
+        form(ng-submit="postComment()")
+          textarea.form-control(rows="3" required="required" ng-model="newCommentText")
+          button.btn.btn-primary.pull-right(type="submit")
+            | Send

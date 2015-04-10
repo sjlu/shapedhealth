@@ -44,6 +44,43 @@ router.get('/:id', function(req, res, next) {
     })
     .catch(next)
 
+});
+
+router.get('/:id/comments', function(req, res, next) {
+
+  Promise.resolve()
+    .then(function() {
+      return models.Comment.find({
+        _topic: req.params.id
+      })
+      .populate('_user')
+      .exec()
+    })
+    .then(function(comment) {
+      res.json(comment);
+    })
+    .catch(next);
+
+})
+
+router.post('/:id/comments', function(req, res, next) {
+
+  Promise.resolve()
+    .then(function() {
+      return models.Topic.findById(req.params.id).exec()
+    })
+    .then(function(topic) {
+      return models.Comment.create({
+        _topic: topic,
+        _user: req.user,
+        text: req.body.text
+      })
+    })
+    .then(function(comment) {
+      res.json(comment);
+    })
+    .catch(next);
+
 })
 
 module.exports = router;

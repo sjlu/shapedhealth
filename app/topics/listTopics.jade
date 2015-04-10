@@ -1,18 +1,19 @@
-div.startTopic
-  form(ng-submit="createTopic()")
-    input.input-lg.form-control(type="text" placeholder="Start a new conversation..." ng-model="newHeadline" ng-disabled="creating" required)
-    div.text-right
-      button.btn.btn-primary(ng-disabled="creating" type="submit")
-        | Next &rarr;
+div.col-sm-10.col-sm-offset-1
+  div.startTopic
+    form(ng-submit="createTopic()")
+      input.input-lg.form-control(type="text" placeholder="Start a new conversation..." ng-model="newHeadline" ng-disabled="creating" required)
+      div.text-right
+        button.btn.btn-primary(ng-disabled="creating" type="submit")
+          | Next &rarr;
 
-div.panel.panel-default.allTopics
-  div.panel-heading
-    | Group's Topics
-  a.topicItem(ng-repeat="topic in topics" href="#/topics/{{topic._id}}")
-    div.headline
-      span
-        | {{topic.headline}}
-      small(ng-show="topic.updated_ago")
-        | &nbsp;&mdash; {{topic.updated_ago}} ago
-    div.participants
-      img.participant.creator(ng-src="{{topic._creator.picture}}")
+  div.panel.panel-default.allTopics
+    div.panel-heading
+      | Group's Topics
+    a.topicItem(ng-repeat="topic in topics" href="#/topics/{{topic._id}}")
+      div.headline
+        span
+          | {{topic.headline}}
+        small(ng-show="topic.updated_ago")
+          | &nbsp;&mdash; {{topic.updated_ago}} ago
+      div.participants
+        img.participant.creator(ng-src="{{topic._creator.picture}}")
